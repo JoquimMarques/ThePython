@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Remove a barra de rolagem */
+            background: black; /* Fundo escuro para destacar as partículas */
+        }
+        canvas {
+            display: block; /* Garante que o canvas preencha a tela */
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas para a animação -->
+    <canvas id="particleCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+class Particle {
+    constructor(x, y, size, speedX, speedY) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.speedX = speedX;
+        this.speedY = speedY;
+    }
+
+    draw() {
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+    }
+}
+
+// Cria partículas
+for (let i = 0; i < 100; i++) {
+    const size = Math.random() * 5 + 1;
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    const speedX = Math.random() * 2 - 1;
+    const speedY = Math.random() * 2 - 1;
+    particles.push(new Particle(x, y, size, speedX, speedY));
+}
+
+// Interatividade com o mouse
+canvas.addEventListener('mousemove', (e) => {
+    const size = Math.random() * 5 + 1;
+    particles.push(new Particle(e.clientX, e.clientY, size, Math.random() * 2 - 1, Math.random() * 2 - 1));
+    if (particles.length > 200) particles.shift();
+});
+
+// Animação
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+    });
+    requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+    </script> <!-- Importa o script -->
+</body>
+</html>
