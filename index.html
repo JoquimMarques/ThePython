@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    
+    <!-- Ícones e Favicon -->
+    <link rel="apple-touch-icon" href="favicon_io-10/apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon_io-10/apple-touch-icon.png" type="image/png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="fontawesome-free-6.7.1-web/css/all.min.css">
+    
+    <!-- Título e Estilo -->
+    <title>ThePython</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <canvas id="snakeCanvas"></canvas>
+
+        <div id="container">
+            <!-- Seção inicial de boas-vindas -->
+            <div id="section1" class="section">
+                <h1 class="nome" id="appName" aria-hidden="true">The<span class="python" aria-hidden="true">Python</span></h1>
+                <img src="imagens/python-imagnes.png" class="imagem" alt="Foto/Python" width="200px">
+                <button id="showSection2" class="bot1">START</button>
+                <a href="imagens/dev.html" class="btnChma">
+                    <i class="fa-solid fa-circle-info"></i>
+                </a>
+            </div>
+
+            <!-- Conteúdo do jogo -->
+            <main id="gameSection" class="hidden">
+                <!-- Painel de Pontuação -->
+                <div id="scorePanel">
+                    Pontos: <span id="score">0</span>
+                </div>
+
+                <button class="novo_jogo" style="display: none;">Novo Jogo</button>
+
+                <!-- Vidas -->
+                <div class="vida">
+                    <button class="vidas">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="cronometro"></span>
+                    </button>
+                    <button class="vidas">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="cronometro"></span>
+                    </button>
+                    <button class="vidas">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="cronometro"></span>
+                    </button>
+                    <button class="vidas">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="cronometro"></span>
+                    </button>
+                </div>
+
+                <!-- Imagem do Forca -->
+                <article class="content_img">
+                    <img id="forcaImg" src="img1.png" alt="primeira_foto" width="250px">
+                </article>
+
+                <!-- Conteúdo Principal -->
+                <article class="content">
+                    <div class="adivi_works"></div>
+                    <div class="clue"></div>
+                    <div class="botons"></div>
+                </article>
+
+                <!-- Área de Ação -->
+                <div id="action-area">
+                    <button id="cadastro-btn">Cadastrar</button>
+                </div>
+            </main>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="hidden">
+            <div class="modal-content">
+                <p id="modal-message"></p>
+                <button id="modal-button">Next</button>
+            </div>
+        </div>
+
+        <!-- Modal de Cadastro -->
+        <div class="login">
+            <div id="cadastro-modal" class="hidden">
+                <h2>Cadastro <i class="fa-solid fa-circle-user"></i></h2>
+                <form class="cadastro-form">
+                    <input type="text" id="nome" placeholder="Primeiro Nome">
+                    <input type="text" id="sobrenome" placeholder="Último Nome">
+                    <input type="number" id="idade" placeholder="Idade" max="50" min="6">
+                    <input type="text" id="turma" placeholder="Turma">
+
+                    <!-- Botões Alinhados -->
+                    <div class="button-container">
+                        <button id="salvar-btn">Salvar</button>
+                        <button id="excluir-btn">Excluir Conta</button>
+                        <button id="fechar-btn">Fechar</button>
+                    </div>
+                </form>
+                <div id="pontuacao">
+                    <h3>Pythoação:</h3>
+                    <p id="maiorPontuacao">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="script.js" type="module"></script>
+    </header>
+</body>
+</html>

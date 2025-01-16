@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="favicon_io-4/apple-touch-icon.png">
+    <link rel="shortcut icon" href=""type="image/png">
+    <link rel="stylesheet" href="../fontawesome-free-6.7.1-web/css/all.min.css">
+    <title>Desenvolvedor</title>
+    <style>
+
+     
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Estilo para o link de voltar */
+.voltar {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5em;
+    margin: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    transition: 0.5s;
+}
+.voltar:hover{
+    transform: scale(1.1);
+}
+.voltar i {
+    margin-right: 5px;
+}
+/* Estilo para o cabeçalho */
+.header {
+    text-align: center;
+    padding: 5px;
+
+    margin-bottom: 0px;
+    margin-top: -60px;
+}
+/* Estilo para a imagem do desenvolvedor */
+.header_2 .imagem {
+    width: 190px;
+    height: 210px;
+    border-radius: 100%;
+    margin-top: 14px;
+    border: 5px solid #ffe602;
+
+}
+/* Estilo para os parágrafos dentro do cabeçalho */
+.header p {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+/* Estilo para a lista */
+.header ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+}
+.header ul li {
+    background: #e2e2e2;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* Estilo para o conteúdo de código em itálico */
+
+
+.contactos{
+     display: flex;
+     justify-content: center;
+}
+
+.redes{
+    background: #ffe602;
+    padding: 6px 27px;
+    margin-left: 20px;
+    margin-right: 22px;
+    border-radius: 30px;
+    border: none;
+   
+}
+.redes i{
+    font-size: 30px;
+    color: rgb(0, 0, 0);  
+}
+
+
+#snakeCanvas {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1; /* Coloca o canvas atrás de tudo */
+}
+
+#container {
+position: relative;
+z-index: 2; /* Conteúdo principal sobre o canvas */
+}
+
+
+
+
+
+
+
+
+
+   
+      
+        
+</style>
+
+</head>
+<body>
+    <canvas id="snakeCanvas"></canvas>
+
+    <div>
+       <a href="../index.html" class="voltar"><i class="fa-solid fa-angles-left"></i></a>
+    </div>
+    <header class="header">
+
+        <div class="header_2">
+        <img src="IMG_0146.JPG" alt="Desenvolvedor" class="imagem">
+
+     <div class="contactos">
+        
+        <button class="redes">
+            <a href="https://github.com/JoquimMarques"><i class="fa-brands fa-github"></i></a>
+        </button>
+
+        <button class="redes">
+            <a href="https://www.linkedin.com/in/joaquim-c%C3%A9sar-francisco-marques-2b957a2a7/"><i class="fa-brands fa-linkedin"></i></a>
+        </button>
+
+        <button class="redes">
+            <a href="mailto:nelsonmarquesj55@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </button>
+
+    </div>
+      
+        </div>
+        <p> <code>Meu nome é Joaquim César Francisco Marques, sou um <i>Desenvolvedor Front-End</i> com paixão por criar soluções práticas e eficientes para problemas do dia a dia.</p>
+        <p>Desenvolvi este jogo de logica com a metodologia do jogo classico da Forca, o <i>ThePython</i>, a partir de uma necessidade pessoal de praticar exercicios em Python, surgiu-me assim a ideia de criar uma Maneira divertida e desafiadora de praticar Python. Como desenvolvedor, sempre estou em busca de ferramentas que possam melhorar a produtividade e facilitar o aprendizado para as pessoas.</p>
+        <p>O <i>ThePython</i> é mais do que um simples jogo da forca. Ele foi pensado para ser uma ferramenta versátil e fácil de usar na hora do apredezado.</p>
+        <p>Espero que o <i>ThePython</i> se torne uma ferramenta valiosa no seu aprendizado em python. Se você tiver sugestões ou feedbacks, adoraria ouvir de você para continuar melhorando esta ferramenta.</code></p>
+    </header>
+
+    <script>
+
+
+
+const canvas = document.getElementById('snakeCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Lista de cobras
+let snakes = [];
+
+// Classe para representar uma cobra
+class Snake {
+    constructor(x, y, speed, length, segmentSize) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.length = length; // Número de segmentos
+        this.segmentSize = segmentSize; // Tamanho de cada segmento
+        this.body = Array.from({ length }, (_, i) => ({
+            x: x,
+            y: y - i * segmentSize, // Cada segmento começa atrás do anterior
+        }));
+    }
+
+    draw() {
+        ctx.fillStyle = 'yellow';
+        this.body.forEach(segment => {
+            ctx.fillRect(segment.x, segment.y, this.segmentSize, this.segmentSize);
+        });
+    }
+
+    update() {
+        // Adiciona um novo segmento à frente
+        this.body.unshift({ x: this.x, y: this.y });
+        this.y += this.speed;
+
+        // Remove o último segmento para manter o tamanho
+        if (this.body.length > this.length) {
+            this.body.pop();
+        }
+
+        // Se sair da tela, reaparece no topo
+        if (this.y > canvas.height) {
+            this.y = -this.segmentSize;
+            this.x = Math.random() * canvas.width;
+            this.body = Array.from({ length: this.length }, (_, i) => ({
+                x: this.x,
+                y: this.y - i * this.segmentSize,
+            }));
+        }
+    }
+}
+
+// Adiciona várias cobras na tela
+for (let i = 0; i < 50; i++) {
+    const length = Math.floor(Math.random() * 5) + 3; // Comprimento aleatório
+    const segmentSize = 4; // Tamanho fixo dos segmentos
+    const speed = Math.random() * 2 + 2; // Velocidade aleatória
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
+    snakes.push(new Snake(x, y, speed, length, segmentSize));
+}
+
+// Função para animar as cobras
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    snakes.forEach(snake => {
+        snake.update();
+        snake.draw();
+    });
+    requestAnimationFrame(animate);
+}
+
+// Redimensiona o canvas quando a janela for redimensionada
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+// Inicia a animação
+animate();
+    </script>
+
+</body>
+</html>

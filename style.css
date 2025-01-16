@@ -1,0 +1,737 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    /* background-color: rgb(0, 0, 0); */
+    
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100dvh;
+    font-family: sans-serif;
+    overflow: hidden;
+    background-color: black;
+    
+   
+}
+
+
+#snakeCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Coloca o canvas atrás de tudo */
+    
+    
+}
+
+#container {
+    position: relative;
+    z-index: 2; /* Conteúdo principal sobre o canvas */
+}
+
+
+main{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 200px;
+    max-width: 400px;
+
+}
+.adivi_works{
+    display: flex;
+    gap: 10px;
+    font-size: 39px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    color:white;
+    font-weight: bold;
+    margin-top: -20px;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+}
+.botons{
+    gap: 12px 12px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    margin-top: -19px;
+}
+
+.clue{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+button {
+ font-size: 25px;
+ border:1px solid  rgb(167, 162, 3);
+ border-radius: 10px;
+}
+
+h1{
+    
+    margin-top: -130px;
+    font-size: 43px;
+    padding-left: 20px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.python{
+    color: rgb(255, 247, 0);
+}
+
+.botons button{
+    margin-top: -5px;
+    width: 34px;
+    background-color: rgb(6, 65, 204);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow:  -1px 1px 2px  rgb(190, 190, 190);
+    color: rgb(255, 247, 0);
+}
+.novo_jogo{
+    padding: 15px;
+    background-color: rgb(2, 24, 189);
+    color: white;
+    border: 2px solid rgb(255, 221, 4);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: -40px;
+    animation: rodar 2s infinite alternate;
+
+}
+button:hover{
+    opacity: 0.8;
+}
+.dicas{
+    font-size: 18px;
+}
+@keyframes rodar {
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(1.2);
+    }
+
+}
+img{
+    background-color: rgb(230, 228, 228);
+    padding: 30px;
+    border-radius: 14px;
+    border: 3px solid rgb(80, 79, 79);
+    /* box-shadow:  -3px 4px 8px  rgb(190, 190, 190); */
+
+}
+
+@media (min-width: 320px) and (max-width: 650px) {
+    body{
+        font-family: sans-serif;
+        overflow: hidden;
+        background-color: black;
+        height: 80dvh;
+        
+    }
+    main{
+        flex-direction: column;
+        padding: 10px;
+    }
+    h1{
+        font: bold 30px;
+        color: white;
+        margin-top: -30px;
+     
+     }
+    .botons button{
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 0.1px;
+    
+
+    box-shadow:  -1px 1px 2px  rgb(190, 190, 190);
+    color: rgb(255, 247, 0);
+    
+     
+
+
+    }
+
+
+    .novo_jogo{
+        margin-bottom: 13px;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        transition: 2s ;
+        animation: rodar 1s infinite alternate;
+        margin-bottom: -30px;
+        margin-top: -120px;
+
+
+    }
+
+    #scorePanel{
+        position: fixed!important;
+        top: 12px !important;
+        right: 250px !important;
+        background-color: transparent;
+        border: 2px solid rgb(238, 215, 9) !important;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+        color: #ffffff;
+    }
+    img{
+        background-color: rgb(230, 228, 228);
+        padding: 15px;
+        border-radius: 14px;
+        border: 3px solid rgb(80, 79, 79);
+        margin-bottom: -10px;
+        margin-top: -95px;
+        /* box-shadow:  -3px 4px 8px  rgb(190, 190, 190); */
+    
+    }
+    
+    .adivi_works{
+        gap: 10px;
+        font-size: 36px;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        color:rgb(255, 255, 255);
+        margin-top: -10px;
+        margin-bottom: -25px;
+    }
+
+
+    .btnChma{
+      
+        margin-top: -490px;
+        margin-left: -70px;
+        padding: -10px;
+        float: left;
+        
+    }
+    a{
+        color: rgb(228, 234, 229);
+        font-size: 26px;
+    }
+    i{
+       
+        font-size: 30px;
+        
+    }
+    .vida {
+     height: 50px;
+     margin-top: -30px;
+     margin-bottom: 2px;
+  
+
+      
+    }
+    
+    .vidas {
+        margin-left: -150px;
+        width: 100px;
+      
+        
+        
+        
+     
+    }
+    #user-name-btn {
+       color: rgb(255, 0, 0);
+    }
+    #cadastro-modal {
+        width: 90% !important;; /* Ajusta a largura para ocupar 90% da tela */
+        padding: 20px !important;;  /* Reduz o padding para economizar espaço */
+
+       
+        
+    }
+    /* .login{
+        background-color: rgba(8, 0, 148, 0.4);
+        padding: 100%;
+    } */
+
+   
+   
+
+    
+
+}
+
+
+ a{
+    margin-top: -550px;
+    padding: -10px;
+    width: 10px;
+    margin-bottom: -150px;
+    color: rgb(251, 255, 0);
+    font-size: 30px;
+    margin-top: -400px;
+    margin-left: -300px;
+    padding: -10px;
+    float: left;
+}
+
+
+
+
+
+
+
+
+    .novo_jogo{
+        margin-bottom: 13px;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        transition: 2s ;
+        animation: rodar 1s infinite alternate;
+      
+
+
+    }
+    .nome, i{
+       
+        padding: 20px;
+        margin-bottom:190px;
+    }
+    .section{
+        background-color: transparent;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+       
+        
+    }
+    
+    
+    .content_img{
+        margin-bottom: -15px;
+    }
+
+    @keyframes rodar {
+        0%{
+            transform: scale(1);
+        }
+    
+        100%{
+            transform: scale(1.2);
+        }
+
+    }
+
+h1{
+    color: rgb(0, 174, 255);
+    
+}
+
+
+.hidden {
+    display: none;
+}
+
+/* Estilo básico */ 
+ #container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.image-grid img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+} 
+/* 
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+} */
+
+.bot1{
+   background-color: transparent;
+   padding: 15px;
+   border: 2px solid rgb(236, 213, 4);
+   color: white;
+   font-weight: bold;
+   font-family: 'Courier New', Courier, monospace;
+   transition: 2s;
+
+
+    
+}
+.bot1:hover{
+    background-color: yellow;
+    border: 2px solid rgb(4, 31, 236);
+    color: blue;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 13, 97, 0.784);
+    padding: 650px;
+    z-index: 1000;
+}
+#modal-button{
+    background-color: rgb(5, 2, 189);
+    padding: 5px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    animation: rodar 1s infinite alternate;
+}
+.modal-content {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#scorePanel{
+    position: absolute;
+    top: -225px;
+    right: 125px;
+    background-color: transparent;
+    border: 2px solid rgb(238, 215, 9);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+} 
+
+.clue{
+    background-color: rgb(230, 228, 228);
+    padding: 22px;
+    border-radius: 14px;
+    border: 3px solid #000d61;
+    box-shadow:  -1px 3px 6px rgb(234, 226, 1);
+    color: black;
+    margin-bottom: 8px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+#modal-message{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: bold;
+    padding:10px;
+}
+
+.imagem{
+    mix-blend-mode: darken;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 14px;
+    border: 3px solid rgb(80, 79, 79);
+    margin-top: -120px;
+    margin-left: 36px;
+    display: flex;
+    justify-content: center;
+    margin-bottom:60px;
+    /* box-shadow:  -3px 4px 8px  rgb(190, 190, 190); */
+    filter: drop-shadow(-3px 4px 8px rgba(94, 167, 250, 0.278)); /* Adiciona uma sombra visível */
+    clip-path: inset(5%);
+    position: relative;
+    animation: rodar 2s infinite alternate;
+    
+  
+  }
+
+  .imagem-interna{
+    position: relative;
+  }
+
+
+
+
+
+
+  .hidden {
+    display: none;
+}
+
+#cadastro-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(5, 2, 189); /* Cor de fundo */
+    border: 2px solid rgb(238, 215, 9); /* Borda suave */
+    padding: 40px 30px; /* Reduzindo padding para melhor proporção */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    z-index: 1000; /* Eleva o modal acima de outros elementos */
+    border-radius: 8px; /* Cantos arredondados */
+    width:420px; /* Largura fixa */
+}
+
+.login {
+    position: fixed; /* Fixa no topo da tela */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa a tela inteira */
+    height: 100vh; /* Ocupa a altura total da tela */
+    background-color: rgba(1, 18, 87, 0.877); /* Cor de fundo com opacidade para criar o efeito de sobreposição */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Garante que ficará acima do conteúdo da página */
+    visibility: hidden; /* Inicialmente escondido */
+}
+
+/* Mostrar a sobreposição quando for necessário */
+.login.show {
+    visibility: visible; /* Torna visível quando necessário */
+}
+
+/* Esconder o modal de cadastro por padrão */
+.hidden {
+    display: none;
+}
+
+
+
+
+#cadastro-modal h2{
+    color: white;
+    margin-bottom: -190px;
+    margin-top: -30px;
+    text-align: center;
+    margin-left: 40px;
+
+}
+#cadastro-modal i{
+    color: rgb(238, 215, 9);
+}
+.cadastro-form {
+    display: flex;
+    flex-direction: column; /* Itens em coluna */
+    gap: 15px; /* Espaçamento vertical entre os campos */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.cadastro-form input {
+    width: 100%; /* Input ocupa toda a largura disponível */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #000000; /* Borda cinza suave */
+    border-radius: 5px; /* Cantos arredondados */
+    font-size: 14px; /* Tamanho da fonte */
+    color: rgb(0, 0, 0);
+ 
+}
+
+.cadastro-form input::placeholder {
+    color: #000000; /* Cor do placeholder normal */
+    opacity: 0.7; /* Opacidade padrão do placeholder */
+}
+#score{
+    color: rgb(238, 215, 9);
+    font-size: 20px;
+    margin-left: 4px;
+    margin-top: 2px;
+    font-weight: bold;
+    animation: ponto 0.5s infinite alternate, brilho 1s infinite alternate;
+}
+
+
+
+.cadastro-form button {
+    padding: 10px 20px; /* Espaçamento interno dos botões */
+    border: none; /* Remove bordas padrão */
+    cursor: pointer; /* Cursor ao passar sobre o botão */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 5px; /* Cantos arredondados */
+    color: white; /* Texto branco */
+}
+
+.cadastro-form button:hover {
+    opacity: 0.9; /* Suave efeito de hover */
+}
+
+#excluir-btn {
+    background-color: red; /* Botão de excluir em vermelho */
+}
+
+#fechar-btn {
+    background-color: #ccc; /* Botão de fechar em cinza */
+    color: #333; /* Cor do texto cinza escuro */
+}
+
+#salvar-btn {
+    background-color: #28a745; /* Botão salvar em verde */
+}
+
+/* Alinha os botões horizontalmente */
+.cadastro-form .button-container {
+    display: flex;
+    justify-content: space-between; /* Espaçamento igual entre os botões */
+    gap: 10px; /* Espaço entre botões */
+}
+
+#action-area {
+    position: fixed; /* Para manter fixo no canto superior direito */
+    background-color: transparent;
+    top: 0; /* Alinha no topo */
+    right: 0; /* Alinha à direita */
+    padding: 10px; /* Espaçamento interno */
+    z-index: 1000; /* Garante que o elemento fique sobre outros conteúdos */
+    
+}
+#user-name-btn {
+    background-color: #28a74600;
+    border: 2px solid rgb(238, 215, 9);
+    position: absolute; /* Posiciona o botão dentro do #action-area */
+    top: 12px; /* Alinha o botão no topo */
+    right: 10px; /* Alinha o botão à direita */
+    padding: 7px 20px; /* Adiciona preenchimento ao botão */
+    color: white; /* Cor do texto do botão */
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#user-name-btn i{
+    color: red;
+    margin-bottom: -30px;
+}
+
+#cadastro-btn {
+    background-color: #28a74600;
+    display: inline-block;
+    border: 2px solid rgb(238, 215, 9);
+    position: absolute; /* Posiciona o botão dentro do #action-area */
+    top: 12px; /* Alinha o botão no topo */
+    right: 10px; /* Alinha o botão à direita */
+    padding: 7px 20px; /* Adiciona preenchimento ao botão */
+    color: white; /* Cor do texto do botão */
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+
+
+
+.vida {
+    justify-content: center;
+    gap: 1px;
+    margin-left: -120px;
+}
+
+.vidas {
+    background: none;
+    display: block;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(255, 0, 0);
+}
+
+.vidas i {
+    transition: color 0.3s ease;
+}
+
+.vidas i.fa-regular {
+    color: rgb(255, 255, 255); /* Cor para vidas perdidas */
+}
+
+#cronometro{
+    background-color: red;
+}
+
+
+.teclado-fechado button {
+    background-color: red !important; /* Altera a cor dos botões para vermelho */
+    color: white !important; /* Muda a cor do texto para branco */
+    cursor: not-allowed; /* Exibe o cursor como proibido */
+}
+
+.teclado-fechado button:disabled {
+    background-color: red !important; /* Redefine a cor do botão para vermelho quando desabilitado */
+    color: white !important; /* Garante que o texto continue branco */
+}
+
+
+.teclado-fechado {
+   
+    pointer-events: none; /* Desabilita qualquer interação com o teclado */
+   
+}
+
+#pontuacao{
+    background-color: transparent;
+    margin-top: 13px;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    border: 2px solid rgb(238, 215, 9);
+    color: white; /* Cor do texto do botão */
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#maiorPontuacao {
+    color: rgb(238, 215, 9);
+    font-size: 20px;
+    margin-left: 4px;
+    margin-top: 2px;
+    font-weight: bold;
+    animation: ponto 0.5s infinite alternate, brilho 1s infinite alternate;
+}
+
+@keyframes ponto {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.4);
+    }
+}
+
+@keyframes brilho {
+    0% {
+        text-shadow: 0 0 5px rgb(238, 215, 9), 0 0 10px rgb(238, 215, 9);
+    }
+    100% {
+        text-shadow: 0 0 20px rgb(238, 215, 9), 0 0 30px rgb(238, 215, 9);
+    }
+}
+
+
+
